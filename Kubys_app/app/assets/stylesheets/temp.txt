@@ -1,0 +1,132 @@
+.window.menu {
+	width: 200px;
+	.button {
+		font-size: 15px !important;
+  }
+}
+
+.window.details {
+	float: left;
+}
+
+.window.form {
+	float: right;
+}
+
+
+  }
+  input[type='checkbox'] {
+    vertical-align: middle;
+  }
+  input[type="submit"]:focus {
+    color: #fff;
+  }
+  &:active, &:focus {
+    color: inherit;
+  }
+	#geocode_zip_loader {
+		position: absolute;
+		display: none;
+		margin: 7px 0 0 7px;
+		vertical-align: middle;
+  }
+	p {
+		margin: 5px 0 0;
+		overflow: hidden;
+		input[type='checkbox'] {
+			vertical-align: middle;
+    }
+  }
+}
+.form_table {
+	border-collapse: collapse;
+	th {
+		text-align: right;
+		padding: 10px 5px 0 0;
+		font: 800 13px 'segoe ui', arial;
+		vertical-align: top;
+  }
+	td {
+		padding: 7px 10px 7px 0;
+		font: 9pt 'segoe ui', arial;
+		text-align: left;
+		color: #222;
+  }
+}
+
+.button {
+	cursor: pointer;
+	background: -webkit-gradient(linear, 0 0, 0 bottom, from(#E18282), to(#933));
+	background: -webkit-linear-gradient(#E18282, #933);
+	background: -moz-linear-gradient(#E18282, #933);
+	background: -ms-linear-gradient(#E18282, #933);
+	background: -o-linear-gradient(#E18282, #933);
+	background: linear-gradient(#E18282, #933);
+	-pie-background: linear-gradient(#e18282, #993333);
+	display: block;
+	width: 170px;
+	margin: auto;
+	border-radius: 4px;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	behavior: url(/PIE.htc);
+	color: #FFFFFF;
+	font-family: arial;
+	font-size: 13px;
+	font-weight: bold;
+	border: 0;
+	margin: 0 auto 10px;
+	padding: 7px;
+	text-align: center;
+	text-decoration: none;
+	&:hover {
+		background: #993333;
+  }
+	&:active {
+		color: #fff;
+		position: relative;
+		top: 1px;
+  }
+}
+
+.field_with_errors {
+	.message {
+		position: absolute;
+		padding: 3px 5px;
+		background: #994444;
+		border-bottom: solid 1px #fff;
+		box-shadow: 1px 1px 1px #666;
+		border-radius: 4px;
+		margin-top: 4px;
+		margin-left: 10px;
+		text-shadow: -1px -1px 0 #661111;
+		color: #fff;
+		&:before {
+			width: 0;
+			height: 0;
+			border-top: 5px solid transparent;
+			border-bottom: 5px solid transparent;
+			content: "\2002";
+			position: absolute;
+			border-right: 6px solid #994444;
+			margin: 3px 0 0 -10px;
+    }
+  }
+	input {
+		background: #FDECE5;
+		border: dashed 1px #bb4444 !important;
+  }
+	label {
+		color: #bb4444;
+  }
+}
+
+.hidden {
+  display: none;
+}
+
+#animal_form {
+  th {
+    text-align: right;
+  }
+}

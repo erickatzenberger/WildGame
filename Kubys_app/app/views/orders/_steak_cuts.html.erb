@@ -1,0 +1,36 @@
+<div id="steakcuts">
+<h3>
+  <span>
+   Steak cuts for <img src="/assets/games/deer.png" />
+   <strong>Deer</strong>
+
+  </span>
+</h3>
+
+
+  
+<%= form_for @order, validate: true, html: { id: 'steak_cuts_form', name: 'steak_cuts' } do |f| %>
+ 
+  <div class="path">
+  <a href="#step1" class="chosen">Tenders</a>
+  <a href="#step2">Cut</a>
+  <a href="#step3">Size</a>
+  <a href="#step4">Type, Quty, Notes, Action</a>
+  </div>
+  
+
+  <div class="step">
+  <ul>
+  <li>Hind Quarters</li>
+  <li>Backstraps</li>
+  <li>Tenders</li>
+  <li>Ribs</li>
+  <li>Shoulders</li>
+  <li>Neck</li>
+  <li>Others</li>
+  </ul>
+  </div>
+
+  
+</div>
+<% end %>

@@ -1,0 +1,88 @@
+	.chosen{
+	color:#933 !important}
+	
+#steakcuts{
+	h3 strong:before{display:none}
+	
+	.path{
+	border-radius:5px;
+	border: solid 1px #ccc;
+	margin-bottom:10px;
+	overflow:hidden;
+	text-shadow: 1px 1px 0 #fff;
+	background: #eee -webkit-linear-gradient(top, #fff 1px, #fbfbfb 2px, #eee);
+	
+	a{
+	color:#bbb;
+	display:block;
+	float:left;
+	padding:8px 15px;
+	
+
+
+	font: bold 14px arial
+	}
+	
+	a:hover{
+	background: #f8f8f8 -webkit-linear-gradient(top, #fff 1px, #fbfbfb 2px, #f8f8f8);}
+	
+	a:last-child{
+	color:#bbb;
+	cursor:default}
+	
+	a:last-child:after{display:none}
+	
+	a:after{
+	display:inline-block;
+	content: " ";
+	font-size:1px;
+	width: 0; 
+	color:transparent;
+	height: 0; 
+	border-top: 7px solid transparent;
+	border-bottom: 7px solid transparent;
+	border-left: 7px solid #ddd;
+	position:absolute;
+	margin: 1px 0 0 15px;
+	}
+	}
+	
+	
+ul li {
+	cursor: pointer;
+	box-shadow: 0 2px 3px #aaa;
+	display:block;
+	background: -webkit-gradient(linear, 0 0, 0 bottom, from(#E18282), to(#933));
+	background: -webkit-linear-gradient(#E18282, #933);
+	background: -moz-linear-gradient(#E18282, #933);
+	background: -ms-linear-gradient(#E18282, #933);
+	background: -o-linear-gradient(#E18282, #933);
+	background: linear-gradient(#E18282, #933);
+	-pie-background: linear-gradient(#e18282, #993333);
+	display: block;
+	width: 170px;
+	margin: auto;
+	border-radius: 4px;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	behavior: url(/PIE.htc);
+	color: #FFFFFF;
+	font-family: arial;
+	font-size: 13px;
+	font-weight: bold;
+	border: 0;
+	border-bottom:solid 1px #E18282;
+	margin: 0 0 10px;
+	padding: 7px;
+	text-align: center;
+	text-decoration: none;
+	&:hover {
+		background: #993333;
+  }
+	&:active {
+		color: #fff;
+		position: relative;
+		top: 1px;
+  }
+}
+}

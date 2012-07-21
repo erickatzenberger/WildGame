@@ -1,0 +1,92 @@
+<table class="data-table">
+  <% if game.respond_to? :species %>
+    <tr field="game_species">
+      <th>Species:</th>
+      <td><%= game.species %></td>
+    </tr>
+  <% end %>
+
+  <% if game.respond_to? :gender %>
+    <tr field="game_gender">
+      <th>Gender:</th>
+      <td><%= game.class::GENDERS[game.gender] %></td>
+    </tr>
+  <% end %>
+
+  <% if game.respond_to? :state %>
+    <tr field="game_state">
+      <th>State:</th>
+      <td><%= game.state %></td>
+    </tr>
+  <% end %>
+  <% if game.respond_to? :origin %>
+    <tr field="game_origin">
+      <th>Origin:</th>
+      <td><%= game.origin %></td>
+    </tr>
+  <% end %>
+  <% if game.respond_to? :hunting_licence_nr %>
+    <tr field="game_hunting_licence_nr">
+      <th>Hunting Licence&nbsp;Number:</th>
+      <td><%= game.hunting_licence_nr %></td>
+    </tr>
+  <% end %>
+  <% if game.respond_to? :kill_tag %>
+    <tr field="game_kill_tag">
+      <th>Kill Tag:</th>
+      <td><%= game.kill_tag %></td>
+    </tr>
+  <% end %>
+  <% if game.respond_to? :mldp %>
+    <tr field="game_mldp">
+      <th>MLDP:</th>
+      <td><%= game.mldp %></td>
+    </tr>
+  <% end %>
+  <tr field="game_condition">
+    <th>Condition:</th>
+    <td><%= game.condition %></td>
+  </tr>
+  <% if game.condition == 'Parts' %>
+    <tr field="game_parts">
+      <th>Parts:</th>
+      <td><%= game.parts.map{|p| "#{p.name} (#{p.quantity})"}.join(', ') %></td>
+    </tr>
+  <% end %>
+  <tr field="game_frozen_in_ice_chest">
+    <th>Frozen in Ice Chest?</th>
+    <td>
+      <% if game.frozen_in_ice_chest? %>
+        Yes (<%= game.ice_chests_quantity %>)
+      <% else %>
+        No
+      <% end %>
+    </td>
+  </tr>
+  <tr field="game_misc_items">
+    <th>Misc. Items:</th>
+    <td><%= game.misc_items.join(', ') %></td>
+  </tr>
+  <% if game.county.present? %>
+    <tr field="game_county">
+      <th>County:</th>
+      <td><%= game.county %></td>
+    </tr>
+  <% end %>
+  <% if game.ranch.present? %>
+    <tr field="game_ranch">
+      <th>Ranch:</th>
+      <td><%= game.ranch %></td>
+    </tr>
+  <% end %>
+  <% if game.respond_to? :bow_kill and game.bow_kill %>
+    <tr field="game_bow_kill">
+      <th></th>
+      <td>BOW KILL! WATCH FOR BROADHEADS!</td>
+    </tr>
+  <% end %>
+  <tr field="game_notes">
+    <th>General notes:</th>
+    <td><%= game.notes %></td>
+  </tr>
+</table>

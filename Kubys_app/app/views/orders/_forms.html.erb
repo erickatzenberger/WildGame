@@ -1,0 +1,32 @@
+<aside class="tabs">
+  <nav>
+    <span class="customers">
+      Customers
+      <small>(<span id="customers_counter"><%= @order.customers.count %></span>)</small>
+    </span>
+    <span class="games">
+      Games
+      <small>(<span id="games_counter"><%= @order.games.count %></span>)</small>
+    </span>
+    <span class="disabled">Steak Cuts</span>
+    <span class="disabled">Trimmings</span>
+  </nav>
+
+  <div class="window bio" id="customers_window">
+    <%= render partial: 'customers', locals: { customers: @order.customers } %>
+  </div>
+
+  <div class="window game" id="games_window">
+    <%= render partial: 'games', locals: { games: @order.games } %>
+  </div>
+</aside>
+
+<section id="form_window">
+  <div class="window">
+    <% if @order.new_record? %>
+      <%= render partial: 'customer_form', locals: { customer: Customer.new } %>
+    <% else %>
+      <%= render partial: 'select_game_form' %>
+    <% end %>
+  </div>
+</section>

@@ -1,0 +1,335 @@
+* {margin: 0;padding: 0; font-family: arial, sans-serif}
+a {text-decoration:none}
+
+.hidden { display: none !important; }
+
+body {
+	background: #fbfbfb;
+	border-top: solid 2px #993333;
+  font-size: 15px;
+}
+
+input[type='text'],
+input[type='number'],
+select
+{
+width:230px;
+margin-bottom: 1px;
+border: solid 1px #bbb;
+border-top-color: #999;
+border-radius:5px;
+box-shadow: 0 1px 1px #eee;
+font-size:16px;
+line-height:16px;
+color: #111;
+z-index:1;
+padding: 4px}
+
+select{background: url(http://s.ytimg.com/yt/img/pixel-vfl3z5WfW.gif)}
+
+input[type='text']:not(:disabled),
+input[type='number']:not(:disabled),
+select:not(:disabled) {
+  background: #fff -webkit-linear-gradient(top, #FFF 1px, #eee 2px, #fff 8px);
+  background: #fff -moz-linear-gradient(top, #FFF 1px, #eee 2px, #fff 8px);
+}
+
+
+header {
+	padding: 0;
+	margin:auto;
+	text-align:center;
+	background: #fdfdfd;
+	border-bottom: solid 1px #f9f9f9;
+	margin-bottom: 10px;
+	a:first-child{
+	position:absolute;
+	left:0;
+	background: -webkit-linear-gradient(#E18282, #933);
+	background: -moz-linear-gradient(#E18282, #933);
+	vertical-align:middle;
+	border: solid 1px #ddd;
+	border-left:0;
+	border-radius: 0 6px 6px 0;
+	padding:10px;
+	margin-top:20px;
+	font: italic 16px georgia;
+	color: #fff;
+	text-shadow: -1px -1px 2px #933;
+	box-shadow: 0 3px 5px #ddd;
+	&:hover{
+	padding-left:20px}
+	}
+	a img {
+		padding: 5px 0 10px;
+		width: 300px;
+  }
+}
+
+
+#main{
+	width: 1160px;
+	margin:auto;
+	}
+
+
+h2 {
+  font: italic 30px georgia, serif;
+  margin: auto;
+  color: #444;
+  padding-left: 10px;
+  margin-bottom: 20px;
+  border-bottom: solid 1px #ddd;
+}
+
+.window {
+	display: block;
+	padding: 10px 20px;
+	background: #fff;
+	margin-bottom:20px;
+	border: solid 1px #ddd;
+	border-radius: 7px;
+	color: #555;
+	box-shadow: 0 0 10px #ddd;
+  &:hover .edit {
+    visibility:visible;
+  }
+	.edit {
+		visibility:hidden;
+		background:#F9F9F9;
+		border: 1px solid #DDDDDD;
+		border-radius: 8px 0 0 8px;
+		color: #999999;
+		font-size: 14px;
+		margin: 20px 0 0 427px;
+		padding: 5px;
+		position: absolute;
+		text-align: center;
+		text-shadow: 1px 1px 0 #FFFFFF;
+		width: 40px;
+		&:hover {
+      cursor:pointer;
+      background:#fbfbfb;
+    }
+  }
+}
+
+.data-table {
+  border-collapse: collapse;
+  width: 100%;
+  tr:nth-child(even) {
+    background:#fafafa;
+  }
+	th {
+		color: #afafaf;
+		text-align:right;
+		text-shadow: 1px 1px 0 #fff;
+		width:130px;
+		padding-top:7px;
+		vertical-align:top;
+		font: 800 14px arial;
+  }
+	td {
+		font: 16px arial;
+		padding:6px;
+		color: #111;
+	  &:empty:after{
+      color: #ddd;
+      font: 11px arial;
+      content: '(empty)';
+    }
+  }
+}
+		
+	aside{
+	float:left;
+	position:relative;
+	top:-12px;
+	width:500px;
+	}
+	
+	section{
+	float:right;
+	position:relative;
+	top:30px;
+	width:635px;}
+	
+	
+	
+	
+	/********* unstaged ********/
+	
+
+.button {
+	cursor: pointer;
+	box-shadow: 0 2px 3px #aaa;
+	
+	background: -webkit-gradient(linear, 0 0, 0 bottom, from(#E18282), to(#933));
+	background: -webkit-linear-gradient(#E18282, #933);
+	background: -moz-linear-gradient(#E18282, #933);
+	background: -ms-linear-gradient(#E18282, #933);
+	background: -o-linear-gradient(#E18282, #933);
+	background: linear-gradient(#E18282, #933);
+	-pie-background: linear-gradient(#e18282, #993333);
+	display: block;
+	width: 170px;
+	margin: auto;
+	border-radius: 4px;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	behavior: url(/PIE.htc);
+	color: #FFFFFF;
+	font-family: arial;
+	font-size: 13px;
+	font-weight: bold;
+	border: 0;
+	border-bottom:solid 1px #E18282;
+	margin: 0 auto 10px;
+	padding: 7px;
+	text-align: center;
+	text-decoration: none;
+	&:hover {
+		background: #993333;
+  }
+	&:active {
+		color: #fff;
+		position: relative;
+		top: 1px;
+  }
+}
+
+/************************
+ *       Validator      *
+ ************************/
+input[required='required']:before{
+content: "asf";}
+ 
+.field_with_errors {
+	.message {
+		position: absolute;
+		padding: 3px 5px;
+		background: #994444;
+		border-bottom: solid 1px #fff;
+		box-shadow: 1px 1px 1px #666;
+		border-radius: 4px;
+		margin-top: 4px;
+		margin-left: 10px;
+		text-shadow: -1px -1px 0 #661111;
+		color: #fff;
+		&:before {
+			width: 0;
+			height: 0;
+			border-top: 5px solid transparent;
+			border-bottom: 5px solid transparent;
+			content: "\2002";
+			position: absolute;
+			border-right: 6px solid #994444;
+			margin: 3px 0 0 -10px;
+    }
+  }
+	input {
+		background: #FDECE5;
+		border: dashed 1px #bb4444 !important;
+  }
+	label {
+		color: #bb4444;
+  }
+}
+
+.hidden {
+  display: none;
+}
+
+#animal_form {
+  th {
+    text-align: right;
+  }
+}
+
+.window.menu {
+	width: 200px;
+	.button {
+		font-size: 15px !important;
+  }
+}
+
+.window.details {
+	float: left;
+}
+
+.window.form {
+	float: right;
+}
+
+
+  
+  input[type='checkbox'] {
+    vertical-align: middle;
+  }
+  input[type="submit"]:focus {
+    color: #fff;
+  
+  &:active, &:focus {
+    color: inherit;
+  }}
+	#geocode_zip_loader {
+		position: absolute;
+		display: none;
+		margin: 7px 0 0 7px;
+		vertical-align: middle;
+  }
+	p {
+		margin: 5px 0 0;
+		overflow: hidden;
+		input[type='checkbox'] {
+			vertical-align: middle;
+    }
+  }
+
+  
+  
+nav{
+z-index:3;
+overflow:hidden;
+position:relative;
+top:1px;
+padding-left:10px;
+	>span{
+    margin-top:2px;
+    margin-right: 4px;
+    display:block;
+    cursor:pointer;
+    font: 800 15px arial;
+    border: solid 1px #ddd;
+    box-shadow: 0 0 10px #ddd;
+    float:left;
+    padding: 6px 14px;
+    position:relative;
+    top:8px;
+    text-shadow: 0 0 1px #863131;
+    border-radius: 7px 7px 0 0;
+    background: -webkit-linear-gradient(#E18282, #933);
+    background: -moz-linear-gradient(#E18282, #933);
+    color: #E5B2B2;
+    &:hover{color:#fff}
+	}
+	.active{
+	top:0;
+	padding:10px 14px;
+	background: #fff;
+	cursor:inherit;
+	border-color: #ddd;
+	box-shadow: 0 0 10px #ddd;
+	text-shadow:none;
+	color: #888;
+	border-bottom-color: #fff;
+	&:hover{color:#888;}
+	}
+  .disabled {
+    background: -webkit-linear-gradient(#999, #555);
+    background: -moz-linear-gradient(#999, #555);
+    color: #ddd;
+    cursor:default;
+    &:hover{color:#ddd;}
+  }
+}

@@ -1,0 +1,18 @@
+<%= form_tag form_order_games_path(@order), id: 'select_game_form' do %>
+  <div class="step select-game">
+    <h3><p>Select game:</p></h3>
+    <ul>
+      <li data-game="deer"><a href="#"><img src="/assets/games/deer.png"/>Deer</a></li>
+      <li data-game="pig"><a href="#"><img src="/assets/games/pig.png"/>Pig</a></li>
+      <li data-game="duck"><a href="#"><img src="/assets/games/duck.png"/>Duck</a></li>
+      <li data-game="turkey"><a href="#"><img src="/assets/games/turkey.png"/>Turkey</a></li>
+      <li data-game="elk"><a href="#"><img src="/assets/games/elk.png"/>Elk</a></li>
+      <li data-game="exotic"><a href="#"><img src="/assets/games/exotic.png"/>Exotic</a></li>
+    </ul>
+  </div>
+<% end %>
+
+<% if @order.games.any? %>
+  <a href="<%= steak_cuts_order_path(@order) %>" class="button form-link">Go to Steak Cuts</a>
+  <a href="<%= trimmings_order_path(@order) %>" class="button form-link">Go to Trimmings</a>
+<% end %>

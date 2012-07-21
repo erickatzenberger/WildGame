@@ -1,0 +1,11 @@
+<div class="sub-tabs">
+  <% customers.each do |customer| %>
+    <span><%= customer.full_name %></span>
+  <% end %>
+</div>
+
+<span class="edit">Edit</span>
+
+<% customers.each do |customer| %>
+  <%= render partial: 'orders/customer', locals: {customer: customer} %>
+<% end %>

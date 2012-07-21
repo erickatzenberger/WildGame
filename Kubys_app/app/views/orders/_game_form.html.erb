@@ -1,0 +1,245 @@
+<h3>
+  <span>
+    <img src="/assets/games/<%= type %>.png" />
+    <strong><%= type.capitalize %></strong>
+  </span>
+</h3>
+
+<%= form_for [@order, @game], as: :game, url: order_games_path(@order), validate: true, html: { id: 'game_form', name: 'game' } do |f| %>
+  .<%= hidden_field_tag :type, type %>
+  <div class="step">
+    <table>
+      <% if @game.respond_to? :species %>
+        <tr data-field="species">
+          <th><%= f.label :species, 'Species:' %></th>
+          <td>
+            <%= f.select :species, @game.class::SPECIES %>
+            <% if @game.respond_to? :custom_species_name %>
+              <%= f.text_field :custom_species_name, class: 'name', placeholder: 'enter species name' %>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+
+      <% if @game.respond_to? :gender %>
+        <tr>
+          <th><%= f.label :gender, 'Gender:' %></th>
+          <td>
+            <span class="radio-button">
+              <%= f.radio_button :gender, 'male' %>
+              <%= f.label :gender_male, @game.class::GENDERS['male'] %>
+            </span>
+            <span class="radio-button">
+              <%= f.radio_button :gender, 'female' %>
+              <%= f.label :gender_female, @game.class::GENDERS['female'] %>
+            </span>
+          </td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+
+  <% if @game.respond_to? :state or @game.respond_to? :origin %>
+    <div class="step">
+      <table>
+        <% if @game.respond_to? :state %>
+          <tr>
+            <th><%= f.label :state, 'State:' %></th>
+            <td><%= f.select :state, @game.class::STATES %></td>
+          </tr>
+        <% end %>
+
+        <% if @game.respond_to? :origin %>
+          <tr>
+            <th><%= f.label :origin, 'Origin:' %></th>
+            <td>
+              <span class="radio-button">
+                <%= f.radio_button :origin, 'hunted' %>
+                <%= f.label :origin_hunted, 'hunted' %>
+              </span>
+              <span class="radio-button">
+                <%= f.radio_button :origin, 'domestic' %>
+                <%= f.label :origin_domestic, 'domestic' %>
+              </span>
+            </td>
+          </tr>
+        <% end %>
+      </table>
+    </div>
+  <% end %>
+
+  <% if @game.respond_to? :hunting_licence_nr %>
+    <div class="step">
+      <table>
+        <% if @game.respond_to? :mldp %>
+          <tr>
+            <th><%= f.label :mldp, 'MLDP:' %></th>
+            <td>
+              <p><%= f.text_field :mldp, size: 15 %></p>
+              <p><span class="checkbox-button auto"><%= f.check_box :no_mldp %> <%= f.label :no_mldp, 'No MLDP' %></span></p>
+            </td>
+          </tr>
+        <% end %>
+
+        <% if @game.respond_to? :hunting_licence_nr %>
+          <tr>
+            <th><%= f.label :hunting_licence_nr, "Hunting Licence&nbsp;Number:".html_safe %></th>
+            <td>
+              <p><%= f.text_field :hunting_licence_nr, size: 15 %></p>
+              <p><span class="checkbox-button auto"><%= f.check_box :no_hunting_licence_nr %> <%= f.label :no_hunting_licence_nr, 'No Licence Number' %></span></p>
+            </td>
+          </tr>
+        <% end %>
+
+        <% if @game.respond_to? :kill_tag %>
+          <tr>
+            <th><%= f.label :kill_tag, 'Kill Tag:' %></th>
+            <td>
+              <p><%= f.text_field :kill_tag, size: 15 %></p>
+              <p><span class="checkbox-button auto"><%= f.check_box :no_kill_tag %> <%= f.label :no_kill_tag, 'No Kill Tag' %></p>
+            </td>
+          </tr>
+        <% end %>
+      </table>
+    </div>
+  <% end %>
+
+  <div class="step">
+    <table>
+      <tr>
+        <th><%= f.label :condition, 'Condition:' %></th>
+        <td>
+          <p><%= f.select :condition, @game.class::CONDITIONS %></p>
+        </td>
+      </tr>
+
+      <% if @game.respond_to? :parts %>
+        <tr class="partsStep">
+          <th><%= f.label :parts, 'Parts:' %></th>
+          <td>
+            <%= f.fields_for :parts do |p| %>
+              <span class="checkbox-button">
+                <%= p.check_box :include %>
+
+                <%= p.label :include, p.object.other? ? 'Other' : p.object.name, class: p.object.other? ? '' : 'name' %>
+                <% if !p.object.other? %>
+                  <%= p.hidden_field :name, class: 'name' %>
+                <% else %>
+                  <%= p.text_field :name, class: 'name other-name', size: 6, placeholder: 'enter part name' %>
+                <% end %>
+
+                <%= p.number_field :quantity, size: 2, min: 1, value: 1  %>
+              </span>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+
+  <div class="step">
+    <table>
+      <tr>
+        <th><%= f.label :frozen_in_ice_chest, 'Frozen in Ice Chest?' %></th>
+        <td>
+          <span class="checkbox-button">
+            <%= f.check_box :frozen_in_ice_chest %>
+            <%= f.label :frozen_in_ice_chest, 'Yes', class: 'name' %>
+            <%= f.number_field :ice_chests_quantity, size: 2, min: 1, value: 1 %>
+          </span>
+        </td>
+      </tr>
+
+      <tr>
+        <th><%= f.label :weight, 'Weight:' %></th>
+        <td>
+          <p><%= f.number_field :weight %></p>
+          <p>
+            <%= f.check_box :unable_to_weigh %>
+            <%= f.label :unable_to_weigh, 'Unable To Weigh' %>
+          </p>
+        </td>
+      </tr>
+
+      <tr>
+        <th><%= f.label :lugs_quantity, 'How many lugs:' %></th>
+        <td><%= f.number_field :lugs_quantity, size: 2, min: 1, value: 1  %></td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="step">
+    <table>
+      <tr id="misc_items_step">
+        <th><label for="misc_items">Misc. Items:</label></th>
+        <td>
+
+         <span class="checkbox-button">
+            <%= f.check_box :save_nothing %>
+            <%= f.label :save_nothing, 'None', class: 'name' %>
+          </span>
+
+          <% @game.class::MISC_ITEMS.each do |item_id, item| %>
+            <span class="checkbox-button">
+              <%= f.check_box item_id %>
+              <%= f.label item_id, item, class: 'name' %>
+            </span>
+          <% end %>
+
+          <% if @game.respond_to? :taxidermy_parts %>
+            <%= f.fields_for :taxidermy_parts do |p| %>
+              <span class="checkbox-button taxidermy">
+                <%= p.check_box :include, class: p.object.other? ? 'other' : '' %>
+                <% part = p.object.other? ? 'Other' : p.object.name %>
+                <%= p.label :include, "Save #{part} for American Taxidermy" %>
+                <% unless p.object.other? %>
+                  <%= p.hidden_field :name, class: 'name' %>
+                <% else %>
+                  <%= p.text_field :name, placeholder: 'enter part name', class: 'name' %>
+                <% end %>
+              </span>
+            <% end %>
+          <% end %>
+        </td>
+      </tr>
+
+      <tr>
+        <th><%= f.label :county, 'County:' %></th>
+        <td><%= f.text_field :county %></td>
+      </tr>
+
+      <tr>
+        <th><%= f.label :ranch, 'Ranch name:' %></th>
+        <td><%= f.text_field :ranch %></td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="step">
+    <table>
+      <% if @game.respond_to? :bow_kill %>
+        <tr>
+          <th><%= f.label :bow_kill, 'Bow Kill:' %></th>
+          <td>
+            <span class="checkbox-button">
+              <%= f.check_box :bow_kill %>
+              <%= f.label :bow_kill, 'BOW KILL! WATCH FOR BROADHEADS!' %>
+            </span>
+          </td>
+        </tr>
+      <% end %>
+
+      <tr>
+        <th><%= f.label :notes, 'General notes:' %></th>
+        <td>
+          <%= f.text_area :notes, rows: 5 %>
+        </td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="buttons">
+    <button class="button next-step">Next &raquo;</button>
+    <button class="button back-step">&laquo; Back</button>
+  </div>
+<% end %>

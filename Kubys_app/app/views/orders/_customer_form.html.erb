@@ -1,0 +1,86 @@
+<%= form_for @order.new_record? ? customer : [@order, customer], validate: true, html: { id: 'bio_form', name: 'bio' } do |f| %>
+  <div class="form_table">
+  <h3><p>Adding a customer</p></h3>
+  <table>
+    <tr>
+      <th><%= f.label :first_name, 'First Name:' %></th>
+      <td><%= f.text_field :first_name, size: 25, required: true %></td>
+    </tr>
+
+    <tr>
+      <th><%= f.label :last_name, 'Last Name:' %></th>
+      <td><%= f.text_field :last_name, size: 25 %></td>
+    </tr>
+
+    <tr>
+      <th><%= f.label :street, 'Street:' %></th>
+      <td><%= f.text_field :street, size: 30 %></td>
+    </tr>
+
+    <tr>
+      <th><%= f.label :zip, 'Zip:' %></th>
+      <td>
+        <%= f.text_field :zip, size: 10, required: true %>
+        <img src="/assets/loader.gif" id="geocode_zip_loader" />
+      </td>
+    </tr>
+
+    <tr>
+      <th><%= f.label :city, 'City:' %></th>
+      <td><%= f.text_field :city, size: 15 %></td>
+    </tr>
+
+    <tr>
+      <th><%= f.label :state, 'State:' %></th>
+      <td><%= f.text_field :state, size: 3, maxlength: 2 %></td>
+    </tr>
+
+    <tr>
+      <th><%= f.label :mobile, 'Mobile Phone:' %></th>
+      <td>
+        <%= f.text_field :mobile, size: 15 %>
+        <span class="checkbox-button default">
+          <%= f.check_box :send_text_to_mobile %>
+          <%= f.label :send_text_to_mobile, 'Do you wish to be contacted via Text Message?' %>
+        </span>
+      </td>
+    </tr>
+
+    <tr>
+      <th><%= f.label :work_mobile, 'Work Mobile:' %></th>
+      <td><%= f.text_field :work_mobile, size: 20 %></td>
+    </tr>
+
+    <tr>
+      <th><%= f.label :home_mobile, 'Home Mobile:' %></th>
+      <td><%= f.text_field :home_mobile, size: 15 %></td>
+    </tr> 
+
+    <tr>
+      <th><%= f.label :email, 'Email:' %></th>
+      <td><%= f.text_field :email, size: 30 %></td>
+    </tr>
+
+    <tr>
+      <th><%- f.label :discount, 'Discount:' %></th>
+      <td>
+	  <span class="checkbox-button default">
+        <%= f.check_box :discount, class: 'checkbox' %>
+        <%= f.label :discount, 'Firemen, Police, Military, other' %>
+      </span></td>
+    </tr>
+
+
+    <tr class="buttons">
+      <td colspan="2" class="center">
+        <input class="button save" style="float:right" type="submit" value="Save and go to Games" />
+
+        <button class="button add-next-customer" style="float:left;width:auto">Save and add another Customer</button>
+        <% if @order.customers.any? %>
+          <button class="button dont-save-add-game" style="float:left;width:auto">Don't save and add Game</button>
+        <% end %>
+      </td>
+    </tr>
+  </table>
+  </div>
+<% end %>

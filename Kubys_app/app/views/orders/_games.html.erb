@@ -1,0 +1,9 @@
+<div class="sub-tabs">
+  <% games.each do |game| %>
+    <span><%= game._type %></span>
+  <% end %>
+</div>
+
+<% games.each do |game| %>
+  <%= render partial: 'orders/game', locals: { game: game } %>
+<% end %>
