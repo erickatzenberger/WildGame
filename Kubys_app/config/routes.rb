@@ -1,5 +1,6 @@
 Kubys::Application.routes.draw do
   resources :orders do
+    resources :trimmings
     collection do
       post :remote
       post :geocode_zip
