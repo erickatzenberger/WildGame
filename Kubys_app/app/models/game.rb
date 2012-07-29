@@ -91,13 +91,18 @@ class Game
 
     field :weight, type: Float
     validates_numericality_of :weight, greater_than: 0, allow_nil: true
-    field :unable_to_weigh, type: Boolean
+    field :unable_to_weigh, type: Boolean 
+    
   end
 
   field :lugs_quantity, type: Integer
 
   field :ice_chests_quantity, type: Integer
   field :frozen_in_ice_chest, type: Boolean
+  validates :weight, {
+    presence_with_no_checkbox: { checkbox: 'frozen_in_ice_chest' },
+    format: { with: /\A\d+\Z/, allow_blank: true },
+  }
 
   validates_numericality_of :lugs_quantity, :ice_chests_quantity,
     only_integer: true, greater_than: 0, allow_nil: true

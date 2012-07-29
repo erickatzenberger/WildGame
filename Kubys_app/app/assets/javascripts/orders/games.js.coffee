@@ -78,6 +78,11 @@ $.fn.bindSelectGameForm = () ->
     $('#form_window > .window').load(this.href)
     return false
 
+  $('#go_to_steak_cuts').on 'click', () ->
+    $('#form_window > .window').load(this.href, () ->
+      $('#form_window > .window form').bindSteakCutsForm()
+    )
+    return false
 
 $.fn.bindGameForm = () ->
   $gameForm = this

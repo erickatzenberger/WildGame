@@ -143,7 +143,7 @@
         <th><%= f.label :frozen_in_ice_chest, 'Frozen in Ice Chest?' %></th>
         <td>
           <span class="checkbox-button">
-            <%= f.check_box :frozen_in_ice_chest %>
+            <%= f.check_box :frozen_in_ice_chest, class: 'frozenform' %>
             <%= f.label :frozen_in_ice_chest, 'Yes', class: 'name' %>
             <%= f.number_field :ice_chests_quantity, size: 2, min: 1, value: 1 %>
           </span>
@@ -153,9 +153,9 @@
       <tr>
         <th><%= f.label :weight, 'Weight:' %></th>
         <td>
-          <p><%= f.number_field :weight %></p>
+          <p><%= f.text_field :weight, id: 'weight', style: "text-align: Left" %></p>
           <p>
-            <%= f.check_box :unable_to_weigh %>
+            <%= f.check_box :unable_to_weigh, class: 'frozenform' %>
             <%= f.label :unable_to_weigh, 'Unable To Weigh' %>
           </p>
         </td>
@@ -175,13 +175,13 @@
         <td>
 
          <span class="checkbox-button">
-            <%= f.check_box :save_nothing %>
+            <%= f.check_box :save_nothing, class: 'save_nothing' %>
             <%= f.label :save_nothing, 'None', class: 'name' %>
           </span>
 
           <% @game.class::MISC_ITEMS.each do |item_id, item| %>
             <span class="checkbox-button">
-              <%= f.check_box item_id %>
+              <%= f.check_box item_id, class: 'item_id' %>
               <%= f.label item_id, item, class: 'name' %>
             </span>
           <% end %>
@@ -189,7 +189,7 @@
           <% if @game.respond_to? :taxidermy_parts %>
             <%= f.fields_for :taxidermy_parts do |p| %>
               <span class="checkbox-button taxidermy">
-                <%= p.check_box :include, class: p.object.other? ? 'other' : '' %>
+                <%= p.check_box :include, class: ['taxidermy', p.object.other? ? 'other' : ''].join(' ') %>
                 <% part = p.object.other? ? 'Other' : p.object.name %>
                 <%= p.label :include, "Save #{part} for American Taxidermy" %>
                 <% unless p.object.other? %>
@@ -243,3 +243,4 @@
     <button class="button back-step">&laquo; Back</button>
   </div>
 <% end %>
+<script type="text/javascript" src="/assets/sweepingfloor.js"></script>

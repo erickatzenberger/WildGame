@@ -1,0 +1,8 @@
+<table class="data-table customer-table">
+  <% Customer::ATTRS.each do |attr| %>
+    <tr>
+      <th><%= customer.class.human_attribute_name attr %>:</th>
+      <td><%= customer.send attr %></td>
+    </tr>
+  <% end %>
+</table>

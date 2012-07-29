@@ -1,5 +1,6 @@
 class TrimmingsController < ApplicationController
-  def new
+  def create
     @order = Order.find params[:order_id]
- end
- end
+    @trimming = Trimming.new
+  end
+end

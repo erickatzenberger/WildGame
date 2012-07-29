@@ -8,8 +8,14 @@
       Games
       <small>(<span id="games_counter"><%= @order.games.count %></span>)</small>
     </span>
-    <span class="disabled">Steak Cuts</span>
-    <span class="disabled">Trimmings</span>
+ 	<span class="steak_cuts">
+      Steak Cuts
+      <small>(<span id="steak_cuts_counter"><%= @order.steak_cuts.count %></span>)</small>
+    </span>
+	<span class="trimmings">
+      Trimmings
+      <small>(<span id="trimmings_counter"><%= @order.trimmings.count %></span>)</small>
+    </span>
   </nav>
 
   <div class="window bio" id="customers_window">
@@ -18,6 +24,14 @@
 
   <div class="window game" id="games_window">
     <%= render partial: 'games', locals: { games: @order.games } %>
+  </div>
+ 
+ <div class="window steak_cut" id="steak_cuts_window">
+    <%= render partial: 'steak_cuts_partial', locals: { games: @order.steak_cuts } %>
+  </div>
+
+  <div class="window trimming" id="trimmings_window">
+    <%= render partial: 'trimmings', locals: { games: @order.trimmings } %>
   </div>
 </aside>
 

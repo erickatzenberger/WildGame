@@ -50,6 +50,16 @@ class OrdersController < ApplicationController
     render partial: 'steak_cuts'
   end
 
+  def steak_cuts_cuts
+    cuts = SteakCut::PARTS[params[:part_id].to_i][:cuts]
+    render partial: 'steak_cuts_cuts', locals: { cuts: cuts }
+  end
+
+  def steak_cuts_sizes
+    sizes = SteakCut::PARTS[params[:part_id].to_i][:cuts][params[:cut_id].to_i][:sizes]
+    render partial: 'steak_cuts_sizes', locals: { sizes: sizes }
+  end
+
   def trimmings
     @order = Order.find params[:id]
     render partial: 'trimmings'

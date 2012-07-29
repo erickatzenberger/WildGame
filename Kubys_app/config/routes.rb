@@ -1,9 +1,10 @@
 Kubys::Application.routes.draw do
   resources :orders do
-    resources :trimmings
     collection do
       post :remote
       post :geocode_zip
+      get :steak_cuts_cuts
+      get :steak_cuts_sizes
     end
     member do
       get :steak_cuts
@@ -15,9 +16,12 @@ Kubys::Application.routes.draw do
         get :select_form
       end
     end
+    resources :trimmings
     resources :customers
+    resources :steak_cuts
   end
   resources :customers
+  resources :trimmings
   root to: 'application#index'
   # The priority is based upon order of creation:
   # first created -> highest priority.

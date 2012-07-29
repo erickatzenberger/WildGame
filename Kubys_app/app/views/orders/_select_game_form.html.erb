@@ -13,6 +13,6 @@
 <% end %>
 
 <% if @order.games.any? %>
-  <a href="<%= steak_cuts_order_path(@order) %>" class="button form-link">Go to Steak Cuts</a>
+  <a href="<%= steak_cuts_order_path(@order) %>" id="go_to_steak_cuts" class="button">Go to Steak Cuts</a>
   <a href="<%= trimmings_order_path(@order) %>" class="button form-link">Go to Trimmings</a>
 <% end %>

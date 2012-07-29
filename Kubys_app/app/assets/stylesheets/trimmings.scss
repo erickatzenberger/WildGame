@@ -1,5 +1,57 @@
 .trimmings {
-  input {
-    width: 50px
+  input[type='number'],input[type='text'] {
+    width: 45px
   }
-}
+  
+  table{
+	width:100%;
+	border-collapse:collapse;
+	
+	th{
+	background: #933; 
+	font: 800 13px arial;
+	padding:5px 0;
+	color:#fff;
+		&:first-child{
+		border-radius: 5px 0 0 0;}
+		&:last-child{
+		border-radius: 0 5px 0 0;
+		padding-right:5px;}
+		}
+	}
+	
+	td{
+	padding:3px 0;
+	width:70px;
+	text-align:center;
+		&:first-child{padding-left:10px;
+		width:auto;
+		text-align:left}
+	}	
+	
+	tr:nth-child(even) {
+    background:#fafafa;
+	}
+	
+	tr:hover td{
+	background:#ddd}
+	
+
+
+	.checkbox-button{
+		cursor: pointer;
+		width:30px;
+		text-align:center;
+		box-shadow: 0 1px 2px #eee;
+		display:block;
+		padding:5px 6px 7px;
+		line-height:15px;
+		margin:auto;
+		border-radius:4px; background:#fff; border: solid 1px #ddd;
+		overflow:hidden;
+		&:hover{border-color:#aaa; box-shadow: 0 1px 1px #ddd;}
+		&.default{	margin-top:4px; margin-bottom:0; display:inline-block; width:auto;
+			label{font: 800 12px arial !important;}}
+			
+		input{cursor:pointer;	}}
+		}

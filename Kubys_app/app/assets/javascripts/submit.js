@@ -1,5 +1,11 @@
-// "Split" functions on "submit" click
-$('#submit').click(function() {
+//Reset button for trimmings
+$('#reset_trimmings').click(function() {
+	$('":text", ":checkbox"').attr('disabled', false);
+	$(':checkbox').removeAttr('checked');
+	 $(':text').not($('#otherid')).val('0');
+});
+// "Split" functions on "save_trimmings" click
+$('#save_trimmings').click(function() {
 	var total= $('.split:checked'),
         count=total.length;
         var split = 0;
@@ -160,8 +166,8 @@ need[24] = 2.5;
 //Set value for Donation
 need[25] = 1.5;
 
-// Function to calculate once submit is clicked
-$('#submit').click(function() {
+// Function to calculate once save_trimmings is clicked
+$('#save_trimmings').click(function() {
 
 // Variables are easily understood within the context of equations
 var var1=0, var2=0, var3=0, var4=0, var5=0, var6=0, var7=0, var8=0, var9=0, var10=0, lesspounds=0, poundsum=0;

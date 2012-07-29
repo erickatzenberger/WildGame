@@ -18,3 +18,4 @@
 //= require orders
 //= require orders/customers
 //= require orders/games
+//= require orders/steak_cuts

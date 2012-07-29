@@ -1,7 +1,269 @@
-<%= form_for [@order, Trimming.new] do |f| %>
-	<p>
-		 <%= f.text_field :percent  %>
-		
-	</p>
+<div id="steakcuts">
+<h3>
+  <span>
+   Trimmings for <img src="/assets/games/deer.png" />
+   <strong>Deer</strong>
 
+  </span>
+</h3>
+
+<%= form_for [@order, Trimming.new], validate: true do |f| %>
+<div class="trimmings">
+
+<table>
+
+<tr>
+<th>Product</th>
+<th>All</th>
+<th>Pounds</th>
+<th>Percent</th>
+<th>Split</th>
+<th>Remainder</th>
+</tr>
+	
+<tr>
+<td>
+		Jalepeno Cheese Link
+	<td>		<span class="checkbox-button"><%= f.check_box :all, id: 'all1', class: 'all' %></span></td>
+	<td> <%= f.text_field :lb, id: 'lb1', class: 'lb', style: "text-align: Right" %></td>
+	<td> <%= f.text_field :percent, id: 'percent1', class: 'percent', style: "text-align: Right" %></td>
+	<td><span class="checkbox-button"> <%= f.check_box :split, id: 'split1', class: 'split' %></td>
+	<td><span class="checkbox-button"> <%= f.check_box :remainder, id: 'remainder1', class: 'remainder' %></span></td>
+	</tr>
+<tr>
+<td>
+	Jalepeno Cheese Salami
+	<td>		<span class="checkbox-button"><%= f.check_box :all, id: 'all2', class: 'all' %></span></td>
+	<td> <%= f.text_field :lb, id: 'lb2', class: 'lb', style: "text-align: Right" %></td>
+	<td> <%= f.text_field :percent, id: 'percent2', class: 'percent', style: "text-align: Right" %></td>
+	<td><span class="checkbox-button"> <%= f.check_box :split, id: 'split2', class: 'split' %></td>
+	<td><span class="checkbox-button"> <%= f.check_box :remainder, id: 'remainder2', class: 'remainder' %></span></td>
+	</tr>
+
+<tr>
+<td>
+	Mild Smoked Links </td>
+	<td>		<span class="checkbox-button"><%= f.check_box :all, id: 'all3', class: 'all' %></span></td>
+	<td> <%= f.text_field :lb, id: 'lb3', class: 'lb', style: "text-align: Right" %></td>
+	<td> <%= f.text_field :percent, id: 'percent3', class: 'percent', style: "text-align: Right" %></td>
+	<td><span class="checkbox-button"> <%= f.check_box :split, id: 'split3', class: 'split' %></td>
+	<td><span class="checkbox-button"> <%= f.check_box :remainder, id: 'remainder3', class: 'remainder' %></span></td>
+	</tr>
+
+<tr>
+<td>
+	Hot Smoked Links </td>
+	<td>		<span class="checkbox-button"><%= f.check_box :all, id: 'all4', class: 'all' %></span></td>
+	<td> <%= f.text_field :lb, id: 'lb', class: 'lb', style: "text-align: Right" %></td>
+	<td> <%= f.text_field :percent, id: 'percent4', class: 'percent', style: "text-align: Right" %></td>
+	<td><span class="checkbox-button"> <%= f.check_box :split, id: 'split4', class: 'split' %></td>
+	<td><span class="checkbox-button"> <%= f.check_box :remainder, id: 'remainder4', class: 'remainder' %></span></td>
+	</tr>
+<tr>
+<td>
+	Chipotle Jack Smoked Links </td>
+	<td>		<span class="checkbox-button"><%= f.check_box :all, id: 'all5', class: 'all' %></span></td>
+	<td> <%= f.text_field :lb, id: 'lb5', class: 'lb', style: "text-align: Right" %></td>
+	<td> <%= f.text_field :percent, id: 'percent5', class: 'percent', style: "text-align: Right" %></td>
+	<td><span class="checkbox-button"> <%= f.check_box :split, id: 'split5', class: 'split' %></td>
+	<td><span class="checkbox-button"> <%= f.check_box :remainder, id: 'remainder5', class: 'remainder' %></span></td>
+	</tr>
+<tr>
+<td>
+	Jalepeno Only Smoked Links </td>
+	<td>		<span class="checkbox-button"><%= f.check_box :all, id: 'all6', class: 'all' %></span></td>
+	<td> <%= f.text_field :lb, id: 'lb6', class: 'lb', style: "text-align: Right" %></td>
+	<td> <%= f.text_field :percent, id: 'percent6', class: 'percent', style: "text-align: Right" %></td>
+	<td><span class="checkbox-button"> <%= f.check_box :split, id: 'split6', class: 'split' %></td>
+	<td><span class="checkbox-button"> <%= f.check_box :remainder, id: 'remainder6', class: 'remainder' %></span></td>
+	</tr>
+<tr>
+<td>
+	Cheddar Only Smoked Links </td>
+	<td>		<span class="checkbox-button"><%= f.check_box :all, id: 'all7', class: 'all' %></span></td>
+	<td> <%= f.text_field :lb, id: 'lb7', class: 'lb', style: "text-align: Right" %></td>
+	<td> <%= f.text_field :percent, id: 'percent7', class: 'percent', style: "text-align: Right" %></td>
+	<td><span class="checkbox-button"> <%= f.check_box :split, id: 'split7', class: 'split' %></td>
+	<td><span class="checkbox-button"> <%= f.check_box :remainder, id: 'remainder7', class: 'remainder' %></span></td>
+	</tr>
+<tr>
+<td>
+	Traditional Salami </td>
+	<td>		<span class="checkbox-button"><%= f.check_box :all, id: 'all8', class: 'all' %></span></td>
+	<td> <%= f.text_field :lb, id: 'lb8', class: 'lb', style: "text-align: Right" %></td>
+	<td> <%= f.text_field :percent, id: 'percent8', class: 'percent', style: "text-align: Right" %></td>
+	<td><span class="checkbox-button"> <%= f.check_box :split, id: 'split8', class: 'split' %></td>
+	<td><span class="checkbox-button"> <%= f.check_box :remainder, id: 'remainder8', class: 'remainder' %></span></td>
+	</tr>
+<tr>
+<td>
+	Jalepeno Only Salami </td>
+	<td>		<span class="checkbox-button"><%= f.check_box :all, id: 'all9', class: 'all' %></span></td>
+	<td> <%= f.text_field :lb, id: 'lb9', class: 'lb', style: "text-align: Right" %></td>
+	<td> <%= f.text_field :percent, id: 'percent9', class: 'percent', style: "text-align: Right" %></td>
+	<td><span class="checkbox-button"> <%= f.check_box :split, id: 'split9', class: 'split' %></td>
+	<td><span class="checkbox-button"> <%= f.check_box :remainder, id: 'remainder9', class: 'remainder' %></span></td>
+	</tr>
+<tr>
+<td>
+	Cheddar Only Salami </td>
+	<td>		<span class="checkbox-button"><%= f.check_box :all, id: 'all10', class: 'all' %></span></td>
+	<td> <%= f.text_field :lb, id: 'lb10', class: 'lb', style: "text-align: Right" %></td>
+	<td> <%= f.text_field :percent, id: 'percent10', class: 'percent', style: "text-align: Right" %></td>
+	<td><span class="checkbox-button"> <%= f.check_box :split, id: 'split10', class: 'split' %></td>
+	<td><span class="checkbox-button"> <%= f.check_box :remainder, id: 'remainder10', class: 'remainder' %></span></td>
+	</tr>
+<tr>
+<td>
+	Mild Breakfast Sausage </td>
+	<td>		<span class="checkbox-button"><%= f.check_box :all, id: 'all11', class: 'all' %></span></td>
+	<td> <%= f.text_field :lb, id: 'lb11', class: 'lb', style: "text-align: Right" %></td>
+	<td> <%= f.text_field :percent, id: 'percent11', class: 'percent', style: "text-align: Right" %></td>
+	<td><span class="checkbox-button"> <%= f.check_box :split, id: 'split11', class: 'split' %></td>
+	<td><span class="checkbox-button"> <%= f.check_box :remainder, id: 'remainder11', class: 'remainder' %></span></td>
+	</tr>
+<tr>
+<td>
+	Hot Breakfast Sausage </td>
+	<td>		<span class="checkbox-button"><%= f.check_box :all, id: 'all12', class: 'all' %></span></td>
+	<td> <%= f.text_field :lb, id: 'lb12', class: 'lb', style: "text-align: Right" %></td>
+	<td> <%= f.text_field :percent, id: 'percent12', class: 'percent', style: "text-align: Right" %></td>
+	<td><span class="checkbox-button"> <%= f.check_box :split, id: 'split12', class: 'split' %></td>
+	<td><span class="checkbox-button"> <%= f.check_box :remainder, id: 'remainder12', class: 'remainder' %></span></td>
+	</tr>
+<tr>
+<td>
+	Bratwurst </td>
+	<td>		<span class="checkbox-button"><%= f.check_box :all, id: 'all13', class: 'all' %></span></td>
+	<td> <%= f.text_field :lb, id: 'lb13', class: 'lb', style: "text-align: Right" %></td>
+	<td> <%= f.text_field :percent, id: 'percent13', class: 'percent', style: "text-align: Right" %></td>
+	<td><span class="checkbox-button"> <%= f.check_box :split, id: 'split13', class: 'split' %></td>
+	<td><span class="checkbox-button"> <%= f.check_box :remainder, id: 'remainder13', class: 'remainder' %></span></td>
+	</tr>
+<tr>
+<td>
+	Mild Italian Sausage </td>
+	<td>		<span class="checkbox-button"><%= f.check_box :all, id: 'all14', class: 'all' %></span></td>
+	<td> <%= f.text_field :lb, id: 'lb14', class: 'lb', style: "text-align: Right" %></td>
+	<td> <%= f.text_field :percent, id: 'percent14', class: 'percent', style: "text-align: Right" %></td>
+	<td><span class="checkbox-button"> <%= f.check_box :split, id: 'split14', class: 'split' %></td>
+	<td><span class="checkbox-button"> <%= f.check_box :remainder, id: 'remainder14', class: 'remainder' %></span></td>
+	</tr>
+<tr>
+<td>
+	Hot Italian Sausage </td>
+	<td>		<span class="checkbox-button"><%= f.check_box :all, id: 'all15', class: 'all' %></span></td>
+	<td> <%= f.text_field :lb, id: 'lb15', class: 'lb', style: "text-align: Right" %></td>
+	<td> <%= f.text_field :percent, id: 'percent15', class: 'percent', style: "text-align: Right" %></td>
+	<td><span class="checkbox-button"> <%= f.check_box :split, id: 'split15', class: 'split' %></td>
+	<td><span class="checkbox-button"> <%= f.check_box :remainder, id: 'remainder15', class: 'remainder' %></span></td>
+	</tr>
+<tr>
+<td>
+	Hunter Sticks </td>
+	<td>		<span class="checkbox-button"><%= f.check_box :all, id: 'all16', class: 'all' %></span></td>
+	<td> <%= f.text_field :lb, id: 'lb16', class: 'lb', style: "text-align: Right" %></td>
+	<td> <%= f.text_field :percent, id: 'percent16', class: 'percent', style: "text-align: Right" %></td>
+	<td><span class="checkbox-button"> <%= f.check_box :split, id: 'split16', class: 'split' %></td>
+	<td><span class="checkbox-button"> <%= f.check_box :remainder, id: 'remainder16', class: 'remainder' %></span></td>
+	</tr>
+<tr>
+<td>
+	Fajita Sausage </td>
+	<td>		<span class="checkbox-button"><%= f.check_box :all, id: 'all17', class: 'all' %></span></td>
+	<td> <%= f.text_field :lb, id: 'lb17', class: 'lb', style: "text-align: Right" %></td>
+	<td> <%= f.text_field :percent, id: 'percent17', class: 'percent', style: "text-align: Right" %></td>
+	<td><span class="checkbox-button"> <%= f.check_box :split, id: 'split17', class: 'split' %></td>
+	<td><span class="checkbox-button"> <%= f.check_box :remainder, id: 'remainder17', class: 'remainder' %></span></td>
+	</tr>
+<tr>
+<td>
+	Chorizo </td>
+	<td>		<span class="checkbox-button"><%= f.check_box :all, id: 'all18', class: 'all' %></span></td>
+	<td> <%= f.text_field :lb, id: 'lb18', class: 'lb', style: "text-align: Right" %></td>
+	<td> <%= f.text_field :percent, id: 'percent18', class: 'percent', style: "text-align: Right" %></td>
+	<td><span class="checkbox-button"> <%= f.check_box :split, id: 'split18', class: 'split' %></td>
+	<td><span class="checkbox-button"> <%= f.check_box :remainder, id: 'remainder18', class: 'remainder' %></span></td>
+	</tr>
+<tr>
+<td>
+	Bulk Mild Italian </td>
+	<td>		<span class="checkbox-button"><%= f.check_box :all, id: 'all19', class: 'all' %></span></td>
+	<td> <%= f.text_field :lb, id: 'lb19', class: 'lb', style: "text-align: Right" %></td>
+	<td> <%= f.text_field :percent, id: 'percent19', class: 'percent', style: "text-align: Right" %></td>
+	<td><span class="checkbox-button"> <%= f.check_box :split, id: 'split19', class: 'split' %></td>
+	<td><span class="checkbox-button"> <%= f.check_box :remainder, id: 'remainder19', class: 'remainder' %></span></td>
+	</tr>
+<tr>
+<td>
+	Bulk Hot Italian </td>
+	<td>		<span class="checkbox-button"><%= f.check_box :all, id: 'all20', class: 'all' %></span></td>
+	<td> <%= f.text_field :lb, id: 'lb20', class: 'lb', style: "text-align: Right" %></td>
+	<td> <%= f.text_field :percent, id: 'percent20', class: 'percent', style: "text-align: Right" %></td>
+	<td><span class="checkbox-button"> <%= f.check_box :split, id: 'split20', class: 'split' %></td>
+	<td><span class="checkbox-button"> <%= f.check_box :remainder, id: 'remainder20', class: 'remainder' %></span></td>
+	</tr>
+<tr>
+<td>
+	Bacon </td>
+	<td>		<span class="checkbox-button"><%= f.check_box :all, id: 'all21', class: 'all' %></span></td>
+	<td> <%= f.text_field :lb, id: 'lb21', class: 'lb', style: "text-align: Right" %></td>
+	<td> <%= f.text_field :percent, id: 'percent21', class: 'percent', style: "text-align: Right" %></td>
+	<td><span class="checkbox-button"> <%= f.check_box :split, id: 'split21', class: 'split' %></td>
+	<td><span class="checkbox-button"> <%= f.check_box :remainder, id: 'remainder21', class: 'remainder' %></span></td>
+	</tr>
+<tr>
+<td>
+	Jerky </td>
+	<td>		<span class="checkbox-button"><%= f.check_box :all, id: 'all22', class: 'all' %></span></td>
+	<td> <%= f.text_field :lb, id: 'lb22', class: 'lb', style: "text-align: Right" %></td>
+	<td> <%= f.text_field :percent, id: 'percent22', class: 'percent', style: "text-align: Right" %></td>
+	<td><span class="checkbox-button"> <%= f.check_box :split, id: 'split22', class: 'split' %></td>
+	<td><span class="checkbox-button"> <%= f.check_box :remainder, id: 'remainder22', class: 'remainder' %></span></td>
+	</tr>
+<tr>
+<td>
+	Hamburger </td>
+	<td>		<span class="checkbox-button"><%= f.check_box :all, id: 'all23', class: 'all' %></span></td>
+	<td> <%= f.text_field :lb, id: 'lb23', class: 'lb', style: "text-align: Right" %></td>
+	<td> <%= f.text_field :percent, id: 'percent23', class: 'percent', style: "text-align: Right" %></td>
+	<td><span class="checkbox-button"> <%= f.check_box :split, id: 'split23', class: 'split' %></td>
+	<td><span class="checkbox-button"> <%= f.check_box :remainder, id: 'remainder23', class: 'remainder' %></span></td>
+	</tr>
+<tr>
+<td>
+	Chili </td>
+	<td>		<span class="checkbox-button"><%= f.check_box :all, id: 'all24', class: 'all' %></span></td>
+	<td> <%= f.text_field :lb, id: 'lb24', class: 'lb', style: "text-align: Right" %></td>
+	<td> <%= f.text_field :percent, id: 'percent24', class: 'percent', style: "text-align: Right" %></td>
+	<td><span class="checkbox-button"> <%= f.check_box :split, id: 'split24', class: 'split' %></td>
+	<td><span class="checkbox-button"> <%= f.check_box :remainder, id: 'remainder24', class: 'remainder' %></span></td>
+	</tr>
+<tr>
+<td>
+<input type="text" style="width:130px" id="otherid" class="otherclass" size="20" maxlength="40" value="" placeholder="Other"/>	 </td>
+<td>		<span class="checkbox-button"><%= f.check_box :all, id: 'all25', class: 'all' %></span></td>
+<td> <%= f.text_field :lb, id: 'lb25', class: 'lb', style: "text-align: Right" %></td>
+<td> <%= f.text_field :percent, id: 'percent25', class: 'percent', style: "text-align: Right" %></td>
+<td><span class="checkbox-button"> <%= f.check_box :split, id: 'split25', class: 'split' %></td>
+<td><span class="checkbox-button"> <%= f.check_box :remainder, id: 'remainder25', class: 'remainder' %></span></td>
+</tr>
+<tr>
+<td>
+	Donate </td>
+	<td>		<span class="checkbox-button"><%= f.check_box :all, id: 'all26', class: 'all' %></span></td>
+	<td> <%= f.text_field :lb, id: 'lb26', class: 'lb', style: "text-align: Right" %></td>
+	<td> <%= f.text_field :percent, id: 'percent26', class: 'percent', style: "text-align: Right" %></td>
+	<td><span class="checkbox-button"> <%= f.check_box :split, id: 'split26', class: 'split' %></td>
+	<td><span class="checkbox-button"> <%= f.check_box :remainder, id: 'remainder26', class: 'remainder' %></span></td>
+	</tr>
+</table>
+
+<input class="button" style="margin-top:20px;" type="button" id="reset_trimmings" value="Reset">
+<input class="button" style="margin-top:20px;" type="button" id="save_trimmings" value="Save">
+
+
+</form>
 <% end %>
+<script type="text/javascript" src="/assets/select.js"></script>
+<script type="text/javascript" src="/assets/submit.js"></script>

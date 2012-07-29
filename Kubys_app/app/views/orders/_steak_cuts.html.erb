@@ -7,30 +7,74 @@
   </span>
 </h3>
 
-
-  
-<%= form_for @order, validate: true, html: { id: 'steak_cuts_form', name: 'steak_cuts' } do |f| %>
- 
+<%= form_for [@order, SteakCut.new], validate: true, html: { id: 'steak_cuts_form', name: 'steak_cuts' } do |f| %>
+  <%= f.hidden_field :part_id %>
+  <%= f.hidden_field :cut_id %>
+  <%= f.hidden_field :size_id %>
   <div class="path">
-  <a href="#step1" class="chosen">Tenders</a>
-  <a href="#step2">Cut</a>
-  <a href="#step3">Size</a>
-  <a href="#step4">Type, Quty, Notes, Action</a>
-  </div>
-  
-
-  <div class="step">
-  <ul>
-  <li>Hind Quarters</li>
-  <li>Backstraps</li>
-  <li>Tenders</li>
-  <li>Ribs</li>
-  <li>Shoulders</li>
-  <li>Neck</li>
-  <li>Others</li>
-  </ul>
+    <a href="#step1" class="chosen">Tenders</a>
+    <a href="#step2">Cut</a>
+    <a href="#step3">Size</a>
+    <a href="#step4">Type, Quty, Notes, Action</a>
   </div>
 
-  
+  <div class="step" id="part_step">
+    <ul>
+      <% SteakCut::PARTS.each do |value, part| %>
+        <li value="<%= value %>"><%= part[:name] %></li>
+      <% end %>
+    </ul>
+  </div>
+
+  <div class="step" id="cut_step"></div>
+
+  <div class="step" id="size_step"></div>
+
+  <div class="step" id="how_many_step">
+    <table>
+      <tr>
+        <th></th>
+        <td>
+          <%= f.radio_button :unit, 'amap' %>
+          <%= f.label :unit_amap, 'AMAP' %>
+        </td>
+      </tr>
+      <tr>
+        <th></th>
+        <td>
+          <%= f.radio_button :unit, 'number' %>
+          <%= f.label :unit_number, 'Set number:' %>
+          <%= f.text_field :number %>
+        </td>
+      </tr>
+      <tr>
+        <th></th>
+        <td>
+          <%= f.radio_button :unit, 'weight' %>
+          <%= f.label :unit_weight, 'Set weight:' %>
+          <%= f.text_field :weight %>
+        </td>
+      </tr>
+      <tr>
+        <th>Smoking</th>
+        <td><%= f.text_field :smoking %></td>
+      </tr>
+      <tr>
+        <th></th>
+        <td>
+          <%= f.check_box :reminder %>
+          <%= f.label :reminder %>
+        </td>
+      </tr>
+      <tr>
+        <th>Wrapping Instructions</th>
+        <td><%= f.text_field :wrapping %></td>
+      </tr>
+      <tr>
+        <th></th>
+        <td><%= f.submit 'Save Steak Cut' %></td>
+      </tr>
+    </table>
+  </div>
 </div>
 <% end %>
